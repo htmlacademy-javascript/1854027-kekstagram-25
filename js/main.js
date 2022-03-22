@@ -59,4 +59,4 @@ const createFoto = () => ({
   comments: commentsFoto
 });
 
-const foto = Array.from({length: 1}, createFoto);
+export const foto = Array.from({length: 1}, createFoto);
