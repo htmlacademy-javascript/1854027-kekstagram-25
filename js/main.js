@@ -40,32 +40,26 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomPositiveInteger(0, elements.length - 1)];
-};
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const createComments = () => {
-  return {
-    id: getRandomPositiveInteger(1, 200),
-    avatar: 'img/avatar-' + getRandomPositiveInteger(1, 6) + '.svg',
-    message: getRandomArrayElement(MESSAGE),
-    name: getRandomArrayElement(NAME)
-  };
-};
+const createComments = () => ({
+  id: getRandomPositiveInteger(1, 200),
+  avatar: 'img/avatar-' + getRandomPositiveInteger(1, 6) + '.svg',
+  message: getRandomArrayElement(MESSAGE),
+  name: getRandomArrayElement(NAME)
+});
 
 const commentsFoto = Array.from({length: 1}, createComments);
 
 console.log(commentsFoto);
 
-const createFoto = () => {
-  return {
-    id: getRandomPositiveInteger(1, 25),
-    url: 'photos/' + getRandomPositiveInteger(1, 25) + '.jpg',
-    description: getRandomArrayElement(DESCRIPTION),
-    likes: getRandomPositiveInteger(15, 200),
-    comments: commentsFoto
-  };
-};
+const createFoto = () => ({
+  id: getRandomPositiveInteger(1, 25),
+  url: 'photos/' + getRandomPositiveInteger(1, 25) + '.jpg',
+  description: getRandomArrayElement(DESCRIPTION),
+  likes: getRandomPositiveInteger(15, 200),
+  comments: commentsFoto
+});
 
 const foto = Array.from({length: 1}, createFoto);
 
