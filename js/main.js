@@ -44,7 +44,7 @@ const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0,
 
 const createComments = () => ({
   id: getRandomPositiveInteger(1, 200),
-  avatar: 'img/avatar-' + String(getRandomPositiveInteger(1, 6)) + '.svg',
+  avatar: `img/avatar-${String(getRandomPositiveInteger(1, 6))}.svg`,
   message: getRandomArrayElement(MESSAGE),
   name: getRandomArrayElement(NAME)
 });
@@ -53,7 +53,7 @@ const commentsFoto = Array.from({length: 1}, createComments);
 
 const createFoto = () => ({
   id: getRandomPositiveInteger(1, 25),
-  url: 'photos/' + String(getRandomPositiveInteger(1, 25)) + '.jpg',
+  url: `photos/${String(getRandomPositiveInteger(1, 25))}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomPositiveInteger(15, 200),
   comments: commentsFoto
