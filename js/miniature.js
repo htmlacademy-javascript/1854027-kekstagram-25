@@ -2,8 +2,8 @@ import {createFotos} from './data.js';
 
 const pictureElement = document.querySelector('.picture');
 const pictureTemplate = document.querySelector('#picture')
-.content
-.querySelector('.picture');
+  .content
+  .querySelector('.picture');
 
 const miniatureFotos = createFotos();
 
