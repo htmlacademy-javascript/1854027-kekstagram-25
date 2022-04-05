@@ -43,7 +43,7 @@ likes: getRandomPositiveInteger(15, 200),
 comments: commentsFoto
 });
 
-const createFotos = Array.from({length: 1}, createFoto);
+const createFotos = Array.from({length: 4}, createFoto);
 
 export {createFotos};
   
