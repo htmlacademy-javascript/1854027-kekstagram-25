@@ -46,4 +46,3 @@ comments: commentsFoto
 const createFotos = Array.from({length: 4}, createFoto);
 
 export {createFotos};
-  
