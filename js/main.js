@@ -1,3 +1,1 @@
-import {createFotos} from './data.js';
-
-console.log(createFotos());
+import './miniature.js';
