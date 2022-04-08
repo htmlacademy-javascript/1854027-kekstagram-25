@@ -47,10 +47,10 @@ const bigFotoFragment = document.createDocumentFragment();
 
 bigFoto.forEach(({url, likes, comments, description}) => {
   const fotoElement = pictureTemplate.cloneNode(true);
-  fotoElement.querySelector('.picture__img').style = url;
-  fotoElement.querySelector('.picture__likes').style = likes;
-  fotoElement.querySelector('.picture__comments').style = comments;
-  fotoElement.querySelector('.picture__comments').style = description;
+  fotoElement.querySelector('.picture__img').src = url;
+  fotoElement.querySelector('.picture__likes').textContent = likes;
+  fotoElement.querySelector('.picture__comments').textContent = comments;
+  fotoElement.querySelector('.picture__comments').textContent = description;
   bigFotoFragment.appendChild(fotoElement);
 });
 
