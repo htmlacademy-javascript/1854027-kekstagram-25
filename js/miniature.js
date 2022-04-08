@@ -19,4 +19,4 @@ miniatureFotos.forEach(({url, likes, comments}) => {
 
 pictureElement.appendChild(miniatureFotoFragment);
 
-export {pictureElement}
+export {pictureElement};
