@@ -1,5 +1,8 @@
 import './miniature.js';
 import {isEscapeKey} from './util.js';
+import {createFotos} from './data.js';
+import {pictureElement} from './miniature.js';
+import {pictureTemplate} from './miniature.js';
 
 const bigPictureElement = document.querySelector('.big-picture');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
@@ -10,7 +13,7 @@ const pageBody = document.querySelector('body');
 const offPictureEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeUserModal();
+    closeBigPicture();
   }
 };
 
@@ -20,7 +23,7 @@ function openBigPicture () {
   commentsLoader.classList.add('hidden');
   pageBody.classList.add('modal-open');
   document.addEventListener('keydown', offPictureEscKeydown);
-};
+}
 
 function closeBigPicture () {
   bigPictureElement.classList.add('hidden');
@@ -28,14 +31,14 @@ function closeBigPicture () {
   commentsLoader.classList.remove('hidden');
   pageBody.classList.remove('modal-open');
   document.removeEventListener('keydown', offPictureEscKeydown);
-};
+}
 
 pictureElement.addEventListener('click', () => {
   openBigPicture ();
 });
 
 bigPictureCancel.addEventListener('click', () => {
-    closeBigPicture () 
+  closeBigPicture ();
 });
 
 const bigFoto = createFotos();
