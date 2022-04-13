@@ -5,15 +5,15 @@ const pictureTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
-const miniatureFotos = createFotos();
+const miniatureFotos = createFotos;
 
 const miniatureFotoFragment = document.createDocumentFragment();
 
 miniatureFotos.forEach(({url, likes, comments}) => {
   const fotoElement = pictureTemplate.cloneNode(true);
   fotoElement.querySelector('.picture__img').src = url;
-  fotoElement.querySelector('.picture__likes').style = likes;
-  fotoElement.querySelector('.picture__comments').style = comments;
+  fotoElement.querySelector('.picture__likes').textContent = likes;
+  fotoElement.querySelector('.picture__comments').textContent = comments;
   miniatureFotoFragment.appendChild(fotoElement);
 });
 
