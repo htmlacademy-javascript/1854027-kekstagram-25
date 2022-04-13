@@ -20,8 +20,8 @@ function validateHashtags (value) {
   for (let i=0; i < hashtags.length; i++) {
     const validHashtags = re.test(hashtags[i]);
     if (validHashtags === false) {
-        error.textContent = 'Хэш-тег должен начинаться с #. Длина не превышает 20 символов';
-        return false;
+      error.textContent = 'Хэш-тег должен начинаться с #. Длина не превышает 20 символов';
+      return false;
     }
   }
   const uniqHashtags = new Set(hashtags);
@@ -56,8 +56,8 @@ function closeEditFotos () {
   document.removeEventListener('keydown', offPictureEscKeydown);
   document.addEventListener('submit', (evt) => {
     // Отключаем событие по умолчанию
-    evt.prevent.Default(); 
-    // Очищаем поля формы 
+    evt.prevent.Default();
+    // Очищаем поля формы
     evt.target.reset();
   });
 }
