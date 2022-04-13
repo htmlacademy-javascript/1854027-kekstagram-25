@@ -10,39 +10,39 @@ const textHashtags = document.querySelector('.text__hashtags');
 const error = document.querySelector('.text__error-hashtag');
 
 const pristine = new Pristine(uploadForm, {
-    classTo: 'text__el--description', 
-    errorTextParent: 'text__el--description',
-    errorTextClass: 'text__error'
-})
+  classTo: 'text__el--description',
+  errorTextParent: 'text__el--description',
+  errorTextClass: 'text__error'
+});
 
 function validateHashtags (value) {
-    const hashtags = value.split(" ")
-    for (let i=0; i < hashtags.length; i++) {
-        const validHashtags = re.test(hashtags[i]);
-        if (validHashtags === false) {
-            error.textContent = 'Хэш-тег должен начинаться с #. Длина не превышает 20 символов';
-            return false
-        }
+  const hashtags = value.split(' ');
+  for (let i=0; i < hashtags.length; i++) {
+    const validHashtags = re.test(hashtags[i]);
+    if (validHashtags === false) {
+        error.textContent = 'Хэш-тег должен начинаться с #. Длина не превышает 20 символов';
+        return false;
     }
-    const uniqHashtags = new Set(hashtags);
+  }
+  const uniqHashtags = new Set(hashtags);
 
-    if (hashtags.length !== uniqHashtags.size) {
-        error.textContent = 'Хэш-теги должны быть уникальными';
-        return false
-    }
+  if (hashtags.length !== uniqHashtags.size) {
+    error.textContent = 'Хэш-теги должны быть уникальными';
+    return false;
+  }
 
-    error.textContent = ' ';
-    return true
+  error.textContent = ' ';
+  return true;
 }
 
 pristine.addValidator(textHashtags, validateHashtags);
 
 const offPictureEscKeydown = (evt) => {
-    if (isEscapeKey(evt)) {
-      evt.preventDefault();
-      closeEditFotos();
-    }
-  };
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closeEditFotos();
+  }
+};
 
 function openEditFotos () {
   formEditFoto.classList.remove('hidden');
@@ -54,22 +54,22 @@ function closeEditFotos () {
   formEditFoto.classList.remove('hidden');
   pageBody.classList.add('modal-open');
   document.removeEventListener('keydown', offPictureEscKeydown);
-  document.addEventListener('submit', (evt) => { 
-    // Отключаем событие по умолчанию 
-        evt.prevent.Default(); 
+  document.addEventListener('submit', (evt) => {
+    // Отключаем событие по умолчанию
+    evt.prevent.Default(); 
     // Очищаем поля формы 
-        evt.target.reset(); 
-    });
+    evt.target.reset();
+  });
 }
 
 uploadFile.addEventListener('change', () => {
-  openEditFotos ()
+  openEditFotos ();
 });
 
 uploadCancel.addEventListener('click', () => {
-  closeEditFotos ()
+  closeEditFotos ();
 });
 
 textHashtags.addEventListener ('chahge', () => {
-    pristine.validate();
-}) 
+  pristine.validate();
+});
