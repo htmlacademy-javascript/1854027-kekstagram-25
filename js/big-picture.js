@@ -39,7 +39,7 @@ function showBigPicture (url, likes, comments, description) {
   bigPictureElement.querySelector('.likes-count').textContent = likes;
   bigPictureElement.querySelector('.comments-count').textContent = comments.length;
   bigPictureElement.querySelector('.social__caption').textContent = description;
-  openBigPicture ()
+  openBigPicture ();
 }
 
 export {showBigPicture};
