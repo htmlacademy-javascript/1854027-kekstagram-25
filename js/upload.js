@@ -1,6 +1,6 @@
 import {isEscapeKey} from './util.js';
 
-const uploadForm = document.querySelector('img-upload__form');
+const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = document.querySelector('#upload-file');
 const formEditFoto = document.querySelector('.img-upload__overlay');
 const pageBody = document.querySelector('body');
@@ -51,15 +51,9 @@ function openEditFotos () {
 }
 
 function closeEditFotos () {
-  formEditFoto.classList.remove('hidden');
-  pageBody.classList.add('modal-open');
+  formEditFoto.classList.add('hidden');
+  pageBody.classList.remove('modal-open');
   document.removeEventListener('keydown', offPictureEscKeydown);
-  document.addEventListener('submit', (evt) => {
-    // Отключаем событие по умолчанию
-    evt.prevent.Default();
-    // Очищаем поля формы
-    evt.target.reset();
-  });
 }
 
 uploadFile.addEventListener('change', () => {

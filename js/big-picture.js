@@ -1,8 +1,5 @@
 import './miniature.js';
 import {isEscapeKey} from './util.js';
-import {createFotos} from './data.js';
-import {pictureElement} from './miniature.js';
-import {pictureTemplate} from './miniature.js';
 
 const bigPictureElement = document.querySelector('.big-picture');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
@@ -33,25 +30,18 @@ function closeBigPicture () {
   document.removeEventListener('keydown', offPictureEscKeydown);
 }
 
-pictureElement.addEventListener('click', () => {
-  openBigPicture ();
-});
-
 bigPictureCancel.addEventListener('click', () => {
   closeBigPicture ();
 });
 
-const bigFoto = createFotos();
 
-const bigFotoFragment = document.createDocumentFragment();
+function showBigPicture (url, likes, comments, description) {
 
-bigFoto.forEach(({url, likes, comments, description}) => {
-  const fotoElement = pictureTemplate.cloneNode(true);
-  fotoElement.querySelector('.picture__img').src = url;
-  fotoElement.querySelector('.picture__likes').textContent = likes;
-  fotoElement.querySelector('.picture__comments').textContent = comments;
-  fotoElement.querySelector('.picture__comments').textContent = description;
-  bigFotoFragment.appendChild(fotoElement);
-});
+  bigPictureElement.querySelector('.big-picture__img img').src = url;
+  bigPictureElement.querySelector('.likes-count').textContent = likes;
+  bigPictureElement.querySelector('.comments-count').textContent = comments;
+  bigPictureElement.querySelector('.social__caption').textContent = description;
+  openBigPicture ()
+}
 
-bigPictureElement.appendChild(bigFotoFragment);
+export {showBigPicture};
