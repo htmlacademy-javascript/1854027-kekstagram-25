@@ -1403,3 +1403,19 @@ main {
 .hidden {
   display: none;
 }
+
+.text__el {
+  position: relative;
+}
+
+.text__error {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+
+    width: 100%;
+
+    transform: translateX(-50%);
+    color: #a7a7a7;
+    text-align: center;
+}
