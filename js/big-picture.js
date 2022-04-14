@@ -16,8 +16,6 @@ const offPictureEscKeydown = (evt) => {
 
 function openBigPicture () {
   bigPictureElement.classList.remove('hidden');
-  commentsCount.classList.add('hidden');
-  commentsLoader.classList.add('hidden');
   pageBody.classList.add('modal-open');
   document.addEventListener('keydown', offPictureEscKeydown);
 }
@@ -39,9 +37,9 @@ function showBigPicture (url, likes, comments, description) {
 
   bigPictureElement.querySelector('.big-picture__img img').src = url;
   bigPictureElement.querySelector('.likes-count').textContent = likes;
-  bigPictureElement.querySelector('.comments-count').textContent = comments;
+  bigPictureElement.querySelector('.comments-count').textContent = comments.length;
   bigPictureElement.querySelector('.social__caption').textContent = description;
-  openBigPicture ()
+  openBigPicture ();
 }
 
 export {showBigPicture};

@@ -16,7 +16,7 @@ miniatureFotos.forEach(({url, likes, comments, description}) => {
   fotoElement.querySelector('.picture__likes').textContent = likes;
   fotoElement.querySelector('.picture__comments').textContent = comments.length;
   fotoElement.addEventListener('click', () => {
-    showBigPicture(url, likes, comments, description)
+    showBigPicture(url, likes, comments, description);
   });
   miniatureFotoFragment.appendChild(fotoElement);
 });
